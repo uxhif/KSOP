@@ -54,7 +54,7 @@ void rotate_by_angle(int degree)
 {
   // TODO
   // (pi * axis_diameter) / 4;
-  int distance = int(PI * axis_diameter / 4 * angle / 90);
+  int distance = int(PI * axis_diameter / 4 * degree / 90);
   int steps = distance_to_steps(distance);
 
   stepper_l.setStep(steps);
