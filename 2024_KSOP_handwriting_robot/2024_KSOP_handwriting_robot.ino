@@ -1,4 +1,16 @@
+#include "StepperAsync5.h"
+#include <Servo.h>
 
+// contants
+const int steps_per_revolution = 2048;
+const int axis_diameter = 165; // in mm
+const int wheel_diameter = 53; // in mm
+
+
+
+// Stepper motor settings
+StepperAsync5 stepper_l(steps_per_revolution, 11, 9, 10, 8);
+StepperAsync5 stepper_r(steps_per_revolution, 5, 3, 4, 2);
 
 
 // Servo motor settings
@@ -8,7 +20,7 @@
 
 void forward(float distance)
 {
-  int steps; // TODO = distance_to_steps(distance);
+  int steps = distance_to_steps(distance); // TODO
   stepper_l.setStep(steps);
   stepper_r.setStep(steps);
 
@@ -40,8 +52,10 @@ void turn_right(int cnt = 1)
 
 void rotate_by_angle(int degree)
 {
-  float distance; // TODO
-  int steps; // TODO
+
+  // D: axis_diameter, PI
+  float distance = degree * PI * axis_diameter / 360; // TODO
+  int steps = distance_to_steps(distance); // TODO
 
   stepper_l.setStep(steps);
   stepper_r.setStep(-steps);
@@ -56,34 +70,15 @@ void rotate_by_angle(int degree)
 
 }
 
-/*
-void pen_up()
-{
-  // TODO
-  pen_servo.write(0); // fix
-}
-
-void pen_down()
-{
-  // TODO
-  pen_servo.write(30); // fix
-}
-*/
-
-
 // convert distance to step
 int distance_to_steps(float distance)
 {
-  float revolution; // TODO
-  int steps; // TODO
+  float revolution = distance / (PI * wheel_diameter); // TODO
+  int steps = int(revolution * steps_per_revolution); // TODO
 
   return steps;
 }
 
-
-
-
- 
 void setup() 
 {
   
@@ -92,14 +87,16 @@ void setup()
 
 
   // initialise robot
-  delay(10000);
+  delay(1000);
   
 }
 
-
 void loop() 
 {
-
+  forward(100);
+  delay(1000);
+  rotate_by_angle(90);
+  delay(1000);
 }
 
 
