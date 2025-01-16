@@ -14,9 +14,15 @@ void setup() {
 
 void loop() {
   // put your main code here, to run repeatedly:
+
+  // TODO: 센서에서 온도 읽어들이기
   temperature = dht.readTemperature();
+
+  // TODO: 센서에서 습도 읽어들이기
   humidity = dht.readHumidity();
   
+
+  // 온도 갑시고 습도 값 시리얼 모니터로 출력하기
   Serial.print("Temperature: ");
   Serial.println(temperature);
   Serial.print("Humidity: ");

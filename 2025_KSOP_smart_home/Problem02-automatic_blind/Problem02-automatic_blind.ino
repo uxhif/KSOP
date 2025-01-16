@@ -51,7 +51,7 @@ void loop() {
     digitalWrite(ledG2, LOW);
     digitalWrite(ledB2, LOW);
 
-    my_servo.write(150);
+    my_servo.write(150); // TODO
     delay(1000);
   }
 
@@ -66,7 +66,7 @@ void loop() {
     digitalWrite(ledG2, HIGH);
     digitalWrite(ledB2, HIGH);
 
-    my_servo.write(-30);
+    my_servo.write(-30); // TODO
     delay(1000);
   }
 

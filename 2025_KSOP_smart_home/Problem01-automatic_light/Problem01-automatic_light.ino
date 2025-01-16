@@ -28,11 +28,14 @@ void setup() {
 void loop() {
   // put your main code here, to run repeatedly:
 
-
+  // TODO
   int CdS_value = analogRead(CdS_pin);
   Serial.print("CdS value: ");
   Serial.println(CdS_value);
 
+  
+
+  // TODO: condition
   if (CdS_value < threshold && light_status) // bright
   {
     light_status = 0;
@@ -45,6 +48,7 @@ void loop() {
     digitalWrite(ledB2, LOW);
   }
 
+  // TODO: condition
   else if (CdS_value >= threshold && !light_status) // bright
   {
     light_status = 1;
@@ -56,8 +60,6 @@ void loop() {
     digitalWrite(ledG2, HIGH);
     digitalWrite(ledB2, HIGH);
   }
-
-
 
   delay(500);
 

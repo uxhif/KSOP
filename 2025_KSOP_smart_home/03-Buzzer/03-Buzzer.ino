@@ -17,9 +17,11 @@
 
 int piezo_pin = 2;
 
+
+
+// TODO: 나만의 멜로디 설정하기
 int notes_1[25] = {D5, G5, D5, C5, F5};
 int duration_1[25] = {150, 150, 200, 200, 100};
-//int tempo = 100;
 
 void setup() {
   // put your setup code here, to run once:
@@ -28,11 +30,14 @@ void setup() {
 
 void loop() {
   // put your main code here, to run repeatedly:
+
+
   for (int i = 0; i < 5; i++) {
+    // TODO: 나만의 멜로디를 연주할 수 있도록 조절하기
     tone (piezo_pin, notes_1[i], duration_1[i] * 2);
     delay (duration_1[i] * 2.2);
   }
 
-  delay(100000);
+  delay(10000);
 
 }

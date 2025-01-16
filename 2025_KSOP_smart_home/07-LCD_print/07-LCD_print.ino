@@ -12,6 +12,9 @@ void setup() {
 
 void loop() {
   // put your main code here, to run repeatedly:
+  
+  
+  // TODO: 예제 코드를 참고하여 디스플레이에 나만의 글씨를 출력해봅시다.
   lcd.setCursor(0, 0); // 
   lcd.print("KSOP");
 
